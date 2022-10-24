@@ -1,4 +1,4 @@
-package com.example.myfavbook;
+package com.example.myfavbook.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 
+import com.example.myfavbook.R;
 import com.example.myfavbook.credentials.Home;
 
 public class MainActivity extends AppCompatActivity {
