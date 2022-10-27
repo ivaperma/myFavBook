@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfavbook.MainHome;
 import com.example.myfavbook.activities.MainActivity;
 import com.example.myfavbook.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -73,7 +74,7 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this, "Logueado con éxito", Toast.LENGTH_LONG).show();
 //                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            Intent intent = new Intent(Login.this, MainHome.class);
                             startActivity(intent);
 
                         }else {
