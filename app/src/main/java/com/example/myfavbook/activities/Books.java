@@ -1,4 +1,4 @@
-package com.example.myfavbook;
+package com.example.myfavbook.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.myfavbook.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Books extends AppCompatActivity {
@@ -18,7 +19,7 @@ public class Books extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
 
-        bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView = findViewById(R.id.btn_navigator);
         bottomNavigationView.setSelectedItemId(R.id.my_books);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

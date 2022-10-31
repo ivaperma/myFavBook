@@ -16,14 +16,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Books"
+            android:name=".activities.Books"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MyBooks"
+            android:name=".activities.MyBooks"
             android:exported="false"
             android:label="@string/title_activity_my_books"
             android:theme="@style/Theme.MyFavBook.NoActionBar">
@@ -32,21 +32,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Search"
+            android:name=".activities.Search"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".More"
+            android:name=".activities.More"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainHome"
+            android:name=".activities.MainHome"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

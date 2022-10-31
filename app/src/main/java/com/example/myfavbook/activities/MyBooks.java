@@ -1,8 +1,9 @@
-package com.example.myfavbook;
+package com.example.myfavbook.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.myfavbook.R;
 import com.example.myfavbook.credentials.Home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -29,7 +30,7 @@ public class MyBooks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView = findViewById(R.id.btn_navigator);
         bottomNavigationView.setSelectedItemId(R.id.search);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -51,7 +52,7 @@ public class MyBooks extends AppCompatActivity {
                         return true;
 
                     case R.id.search:
-                        startActivity(new Intent(getApplicationContext(),Home.class));
+                        startActivity(new Intent(getApplicationContext(),Search.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
