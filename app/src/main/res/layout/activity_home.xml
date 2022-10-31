@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.611" />
 
     <Button
         android:id="@+id/btnHomeLogin"
@@ -49,10 +49,8 @@
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="364dp"
         android:background="#000000"
         android:onClick="register"
         android:text="Register"

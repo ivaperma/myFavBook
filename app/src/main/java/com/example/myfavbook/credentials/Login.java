@@ -14,8 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myfavbook.MainHome;
-import com.example.myfavbook.activities.MainActivity;
+import com.example.myfavbook.activities.MainHome;
 import com.example.myfavbook.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
