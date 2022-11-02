@@ -19,12 +19,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.myfavbook.databinding.ActivityMyBooksBinding;
+
+
 
 public class MyBooks extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMyBooksBinding binding;
 
     BottomNavigationView bottomNavigationView;
     @Override
@@ -35,53 +34,35 @@ public class MyBooks extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+
+                switch (item.getItemId()) {
+
                     case R.id.my_books:
 
                         return true;
 
                     case R.id.more:
-                        startActivity(new Intent(getApplicationContext(),More.class));
-                        overridePendingTransition(0,0);
+
+                        startActivity(new Intent(getApplicationContext(), More.class));
+                        overridePendingTransition(0, 0);
+
                         return true;
 
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), Home.class));
-                        overridePendingTransition(0,0);
+
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.search:
-                        startActivity(new Intent(getApplicationContext(),Search.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), Search.class));
+                        overridePendingTransition(0, 0);
+
                         return true;
                 }
                 return false;
             }
         });
 
-        binding = ActivityMyBooksBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+    }}
 
-        setSupportActionBar(binding.toolbar);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_my_books);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_my_books);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-}

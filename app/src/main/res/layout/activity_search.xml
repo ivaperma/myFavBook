@@ -5,19 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_new"
+
+    android:background="@drawable/leer1"
     tools:context=".activities.Search">
 
-    <TextView
-        android:layout_width="999dp"
-        android:layout_height="316dp"
-        android:layout_centerInParent="true"
-        android:text="SEARCH"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="411dp"
-        tools:layout_editor_absoluteY="709dp" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_navigator"
@@ -28,5 +20,18 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu" />
+
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:queryHint="Search "
+        android:background="@color/blue_claro"/>
+
 
 </RelativeLayout>
