@@ -21,9 +21,8 @@ import androidx.navigation.ui.NavigationUI;
 
 
 
+
 public class MyBooks extends AppCompatActivity {
-
-
 
 
     BottomNavigationView bottomNavigationView;
@@ -35,29 +34,35 @@ public class MyBooks extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 switch (item.getItemId()) {
+
                     case R.id.my_books:
 
                         return true;
 
                     case R.id.more:
+
                         startActivity(new Intent(getApplicationContext(), More.class));
                         overridePendingTransition(0, 0);
+
                         return true;
 
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), Home.class));
+
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.search:
                         startActivity(new Intent(getApplicationContext(), Search.class));
                         overridePendingTransition(0, 0);
+
                         return true;
                 }
                 return false;
             }
         });
 
-
     }}
+
