@@ -16,6 +16,22 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Friends"
+            android:exported="false"
+            android:label="@string/title_activity_friends"
+            android:theme="@style/Theme.MyFavBook.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.Friends"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.Books"
             android:exported="false">
             <meta-data
