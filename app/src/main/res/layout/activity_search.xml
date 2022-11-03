@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/leer1"
     tools:context=".activities.Search">
 
@@ -20,6 +21,7 @@
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu" />
 
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="800dp"
@@ -30,5 +32,6 @@
         android:layout_marginBottom="8dp"
         android:queryHint="Search "
         android:background="@color/blue_claro"/>
+
 
 </RelativeLayout>
