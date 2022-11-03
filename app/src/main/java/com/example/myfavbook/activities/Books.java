@@ -43,6 +43,11 @@ public class Books extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), Search.class));
                         overridePendingTransition(0, 0);
                         return true;
+
+                    case R.id.friends:
+                        startActivity(new Intent(getApplicationContext(), Friends.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                 }
                 return false;
             }
