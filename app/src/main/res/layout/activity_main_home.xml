@@ -4,26 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainHome"
-    android:background="@drawable/background_new">
+    android:background="@drawable/background_new"
+    tools:context=".activities.MainHome">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="50dp"
-        android:textStyle="bold"
         android:layout_centerInParent="true"
-        android:textColor="@color/black"/>
+        android:text="Home"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="59dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginRight="100dp"
+        android:backgroundTint="#B4AE73"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:icon="@drawable/logout"
+        app:iconGravity="textEnd"
+        app:iconTint="#090909" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btn_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_navigator"
+        android:layout_alignParentBottom="true"
         app:itemBackground="@color/blue_claro"
-        app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
-        app:menu="@menu/menu"
-        android:layout_alignParentBottom="true"/>
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu" />
 
 </RelativeLayout>

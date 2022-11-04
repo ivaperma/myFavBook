@@ -6,13 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.myfavbook.R;
+import com.example.myfavbook.credentials.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainHome extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    Button mLogoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,7 @@ public class MainHome extends AppCompatActivity {
         setContentView(R.layout.activity_main_home);
         bottomNavigationView = findViewById(R.id.btn_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home);
+        mLogoutBtn = findViewById(R.id.btnLogout);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -49,6 +56,14 @@ public class MainHome extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        mLogoutBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainHome.this, "Deslogueado", Toast.LENGTH_LONG).show();
+                FirebaseAuth.getInstance().signOut();
             }
         });
     }
