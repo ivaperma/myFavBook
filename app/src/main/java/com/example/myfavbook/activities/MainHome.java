@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myfavbook.R;
-import com.example.myfavbook.credentials.Home;
 import com.example.myfavbook.credentials.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,19 +41,17 @@ public class MainHome extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),More.class));
                         overridePendingTransition(0,0);
                         return true;
-
                     case R.id.search:
                         startActivity(new Intent(getApplicationContext(),Search.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.my_books:
+                        startActivity(new Intent(getApplicationContext(),Books.class));
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.friends:
                         startActivity(new Intent(getApplicationContext(),Friends.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.my_books:
-                        startActivity(new Intent(getApplicationContext(),Books.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
@@ -67,7 +64,6 @@ public class MainHome extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(MainHome.this, "Deslogueado", Toast.LENGTH_LONG).show();
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), Home.class));
             }
         });
     }
