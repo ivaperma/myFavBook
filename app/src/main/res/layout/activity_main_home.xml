@@ -27,7 +27,8 @@
         android:textStyle="bold"
         app:icon="@drawable/logout"
         app:iconGravity="textEnd"
-        app:iconTint="#090909" />
+        app:iconTint="#090909"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_navigator"
