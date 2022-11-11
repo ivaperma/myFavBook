@@ -124,6 +124,7 @@ public class Search extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 progressBar.setVisibility(View.GONE);
                 //inside on response method we are extracting all our json data.
+                //related to the api response we have a list of "items" that´s why we retrieve them in the next line
                 try {
                     JSONArray itemsArray = response.getJSONArray("items");
 
@@ -164,7 +165,7 @@ public class Search extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    //displaying a toast message when we get any erro from API
+                    //displaying a toast message when we get any error from API
                     Toast.makeText(Search.this, "No Data Found" + e, Toast.LENGTH_SHORT).show();
                 }
             }
