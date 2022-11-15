@@ -8,20 +8,15 @@
     android:background="@drawable/background_new"
     tools:context=".credentials.Home">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/roboto_serif"
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="188dp"
+        android:layout_height="106dp"
+        android:background="@drawable/logo03"
         app:layout_constraintBottom_toTopOf="@+id/btnHomeLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnHomeLogin"
