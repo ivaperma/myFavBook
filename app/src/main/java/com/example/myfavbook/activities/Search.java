@@ -152,7 +152,7 @@ public class Search extends AppCompatActivity {
                         }
                         //after extracting all the data we are saving this data in our modal class.
                         BookInfo bookInfo = new BookInfo(title, subtitle, authorsArrayList, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
-                        //beloe line is use to pass our modal class in our array list.
+                        //below line is use to pass our modal class in our array list.
                         bookInfoArrayList.add(bookInfo);
                         //below line is use to pass our array list in adapter class.
                         BookAdapter adapter = new BookAdapter(bookInfoArrayList, Search.this);
