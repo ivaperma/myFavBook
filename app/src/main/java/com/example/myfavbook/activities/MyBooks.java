@@ -7,6 +7,7 @@ import com.example.myfavbook.R;
 import com.example.myfavbook.credentials.Home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

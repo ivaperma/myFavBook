@@ -10,25 +10,48 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_above="@+id/imageLogo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="89dp"
         android:text="Home"
         android:textColor="@color/white"
         android:textSize="50dp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="188dp"
+        android:layout_height="106dp"
+        android:layout_above="@+id/btn_navigator"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="338dp"
+        android:background="@drawable/logo03" />
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="59dp"
         android:layout_height="63dp"
-        android:layout_marginStart="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="314dp"
         android:layout_marginRight="100dp"
-        android:backgroundTint="#B4AE73"
+        android:backgroundTint="#C9BA34"
         android:textColor="#070707"
         android:textStyle="bold"
         app:icon="@drawable/logout"
         app:iconGravity="textEnd"
         app:iconTint="#090909"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_navigator"
