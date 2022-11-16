@@ -139,7 +139,7 @@
             <!--button for adding to favourite-->
 
             <Button
-                android:id="@+id/Add"
+                android:id="@+id/idBtnAdd"
                 android:layout_width="386dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
