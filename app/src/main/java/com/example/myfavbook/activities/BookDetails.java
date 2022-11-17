@@ -8,18 +8,17 @@ import com.example.myfavbook.R;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import com.example.myfavbook.queries.Queries;
 
 
 public class BookDetails extends AppCompatActivity {
@@ -30,8 +29,9 @@ public class BookDetails extends AppCompatActivity {
     private ArrayList<String> authors;
 
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
-    Button previewBtn, buyBtn;
+    Button previewBtn, buyBtn, addBtn;
     private ImageView bookIV;
+    private Queries query1 = new Queries();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class BookDetails extends AppCompatActivity {
         publishDateTV = findViewById(R.id.idTVPublishDate);
         previewBtn = findViewById(R.id.idBtnPreview);
         buyBtn = findViewById(R.id.idBtnBuy);
+        addBtn = findViewById(R.id.idBtnAdd);
         bookIV = findViewById(R.id.idIVbook);
 
         // getting the data which we have passed from our adapter class.
@@ -60,7 +61,7 @@ public class BookDetails extends AppCompatActivity {
         previewLink = getIntent().getStringExtra("previewLink");
         infoLink = getIntent().getStringExtra("infoLink");
         buyLink = getIntent().getStringExtra("buyLink");
-
+        BookInfo libro = new BookInfo(title, subtitle, authors, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
         // after getting the data we are setting
         // that data to our text views and image view.
         titleTV.setText(title);
@@ -102,6 +103,14 @@ public class BookDetails extends AppCompatActivity {
                 Uri uri = Uri.parse(buyLink);
                 Intent i = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(i);
+            }
+        });
+        //addfc
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                query1.guardarFavorito("Sergio",libro);
+                Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
             }
         });
     }
