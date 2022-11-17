@@ -1,66 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_new"
     tools:context=".activities.MainHome">
 
     <TextView
+        android:id='@+id/textHome'
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageLogo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginStart="137dp"
         android:layout_marginTop="31dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="89dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="45dp"
         android:text="Home"
         android:textColor="@color/white"
         android:textSize="50dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintLeft_toLeftOf="@id/btnLogout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014" />
 
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="188dp"
         android:layout_height="106dp"
-        android:layout_above="@+id/btn_navigator"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginBottom="338dp"
-        android:background="@drawable/logo03" />
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="444dp"
+        android:background="@drawable/logo03"
+        app:layout_constraintBottom_toBottomOf="@id/btn_navigator"
+        app:layout_constraintBottom_toTopOf="@+id/btn_navigator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="59dp"
         android:layout_height="63dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="314dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginRight="100dp"
+
         android:backgroundTint="#C9BA34"
         android:textColor="#070707"
         android:textStyle="bold"
         app:icon="@drawable/logout"
         app:iconGravity="textEnd"
         app:iconTint="#090909"
-         />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         app:itemBackground="@color/blue_claro"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
