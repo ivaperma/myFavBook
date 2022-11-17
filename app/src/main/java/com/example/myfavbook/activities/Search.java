@@ -98,10 +98,9 @@ public class Search extends AppCompatActivity {
                 //checking if our edittext field is empty or not.
                 if (searchEdt.getText().toString().isEmpty()) {
                     searchEdt.setError("Please enter search query");
-                    return;
+                }else {
+                    getBooksInfo(searchEdt.getText().toString());
                 }
-                //if the search query is not empty then we are calling get book info method to load all the books from the API.
-                getBooksInfo(searchEdt.getText().toString());
             }
         });
     }
