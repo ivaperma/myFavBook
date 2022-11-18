@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
 
-    //creating variables for our requestqueue, array list, progressbar, edittext, image button and our recycler view.
+    //creating variables for our request queue, array list, progressbar, edittext, image button and our recycler view.
     private RequestQueue mRequestQueue;
     private ArrayList<BookInfo> bookInfoArrayList;
     private ProgressBar progressBar;
@@ -90,7 +90,7 @@ public class Search extends AppCompatActivity {
         searchEdt = findViewById(R.id.idEdtSearchBooks);
         searchBtn = findViewById(R.id.idBtnSearch);
 
-        //initializing on click listner for our button.
+        //initializing on click listener for our button.
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,7 @@ public class Search extends AppCompatActivity {
     private void getBooksInfo(String query) {
         //creating a new array list.
         bookInfoArrayList = new ArrayList<>();
-        //below line is use to initialze the variable for our request queue.
+        //below line is use to initialize the variable for our request queue.
         mRequestQueue = Volley.newRequestQueue(Search.this);
         //below line is use to clear cache this will be use when our data is being updated.
         mRequestQueue.getCache().clear();
