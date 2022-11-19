@@ -10,10 +10,11 @@ import android.view.MenuItem;
 
 import com.example.myfavbook.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class Friends extends AppCompatActivity {
 
-   BottomNavigationView bottomNavigationView;
+    BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -24,7 +25,7 @@ public class Friends extends AppCompatActivity {
         bottomNavigationView = findViewById((R.id.btn_navigator));
         bottomNavigationView.setSelectedItemId(R.id.friends);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())

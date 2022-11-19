@@ -22,26 +22,12 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:background="#FAF7F7"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <EditText
         android:id="@+id/fullName"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:background="#F8FBFAFA"
         android:ems="10"
         android:hint="Full Name"
@@ -54,10 +40,26 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
+        android:id="@+id/email"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#FAF7F7"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
         android:id="@+id/password"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="60dp"
         android:background="#FAF9F9"
         android:ems="10"
         android:hint="Password"
@@ -74,7 +76,7 @@
         android:layout_width="211dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#000000"
+        android:background="@color/buttons"
         android:text="Register"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -109,23 +111,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:text="@string/app_name"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textSize="36sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:fontFamily="@font/roboto_serif"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/textView2"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.494"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="1.0" />-->
 
     <TextView
         android:id="@+id/homeText"

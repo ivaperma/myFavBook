@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.example.myfavbook.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class Books extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class Books extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.btn_navigator);
         bottomNavigationView.setSelectedItemId(R.id.my_books);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
