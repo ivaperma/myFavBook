@@ -20,12 +20,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     // creating variables for arraylist and context.
     private ArrayList<BookInfo> bookInfoArrayList;
-    private final Context mcontext;
+    private final Context mContext;
 
     // creating constructor for array list and context.
-    public BookAdapter(ArrayList<BookInfo> bookInfoArrayList, Context mcontext) {
+    public BookAdapter(ArrayList<BookInfo> bookInfoArrayList, Context mContext) {
         this.bookInfoArrayList = bookInfoArrayList;
-        this.mcontext = mcontext;
+        this.mContext = mContext;
     }
 
     @NonNull
@@ -56,7 +56,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             public void onClick(View v) {
                 // inside on click listener method we are calling a new activity
                 // and passing all the data of that item in next intent.
-                Intent i = new Intent(mcontext, BookDetails.class);
+                Intent i = new Intent(mContext, BookDetails.class);
                 i.putExtra("title", bookInfo.getTitle());
                 i.putExtra("subtitle", bookInfo.getSubtitle());
                 i.putExtra("authors", bookInfo.getAuthors());
@@ -71,7 +71,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
                 // after passing that data we are
                 // starting our new intent.
-                mcontext.startActivity(i);
+                mContext.startActivity(i);
             }
         });
     }
