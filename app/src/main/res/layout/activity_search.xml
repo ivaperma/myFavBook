@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/idLLsearch" />
 
-    <!--progressbar for displaying our loadinig indicator-->
+    <!--progressbar for displaying our loading indicator-->
     <ProgressBar
         android:id="@+id/idLoadingPB"
         android:visibility="gone"

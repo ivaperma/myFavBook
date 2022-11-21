@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
 
-    //creating variables for our requestqueue, array list, progressbar, edittext, image button and our recycler view.
+    //creating variables for our request queue, array list, progressbar, edittext, image button and our recycler view.
     private RequestQueue mRequestQueue;
     private ArrayList<BookInfo> bookInfoArrayList;
     private ProgressBar progressBar;
@@ -91,7 +91,7 @@ public class Search extends AppCompatActivity {
         searchEdt = findViewById(R.id.idEdtSearchBooks);
         searchBtn = findViewById(R.id.idBtnSearch);
 
-        //initializing on click listner for our button.
+        //initializing on click listener for our button.
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,7 @@ public class Search extends AppCompatActivity {
     private void getBooksInfo(String query) {
         //creating a new array list.
         bookInfoArrayList = new ArrayList<>();
-        //below line is use to initialze the variable for our request queue.
+        //below line is use to initialize the variable for our request queue.
         mRequestQueue = Volley.newRequestQueue(Search.this);
         //below line is use to clear cache this will be use when our data is being updated.
         mRequestQueue.getCache().clear();
@@ -124,6 +124,7 @@ public class Search extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 progressBar.setVisibility(View.GONE);
                 //inside on response method we are extracting all our json data.
+                //related to the api response we have a list of "items" that´s why we retrieve them in the next line
                 try {
                     JSONArray itemsArray = response.getJSONArray("items");
 
@@ -151,7 +152,7 @@ public class Search extends AppCompatActivity {
                         }
                         //after extracting all the data we are saving this data in our modal class.
                         BookInfo bookInfo = new BookInfo(title, subtitle, authorsArrayList, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
-                        //beloe line is use to pass our modal class in our array list.
+                        //below line is use to pass our modal class in our array list.
                         bookInfoArrayList.add(bookInfo);
                         //below line is use to pass our array list in adapter class.
                         BookAdapter adapter = new BookAdapter(bookInfoArrayList, Search.this);
@@ -164,7 +165,7 @@ public class Search extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    //displaying a toast message when we get any erro from API
+                    //displaying a toast message when we get any error from API
                     Toast.makeText(Search.this, "No Data Found" + e, Toast.LENGTH_SHORT).show();
                 }
             }
