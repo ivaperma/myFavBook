@@ -2,6 +2,8 @@ package com.example.myfavbook.activities;
 
 import static android.content.ContentValues.TAG;
 
+import static com.example.myfavbook.R.id.idBtnDelete;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -39,7 +41,7 @@ public class BookDetails extends AppCompatActivity {
     private ArrayList<String> authors;
 
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
-    Button previewBtn, buyBtn, addBtn;
+    Button previewBtn, buyBtn, addBtn, deleteBtn;
     private ImageView bookIV;
     private Queries query1 = new Queries();
 
@@ -60,6 +62,7 @@ public class BookDetails extends AppCompatActivity {
         previewBtn = findViewById(R.id.idBtnPreview);
         buyBtn = findViewById(R.id.idBtnBuy);
         addBtn = findViewById(R.id.idBtnAdd);
+        deleteBtn = findViewById(idBtnDelete);
         bookIV = findViewById(R.id.idIVbook);
 
         // getting the data which we have passed from our adapter class.
@@ -73,6 +76,7 @@ public class BookDetails extends AppCompatActivity {
         previewLink = getIntent().getStringExtra("previewLink");
         infoLink = getIntent().getStringExtra("infoLink");
         buyLink = getIntent().getStringExtra("buyLink");
+
         BookInfo libro = new BookInfo(title, subtitle, authors, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
         // after getting the data we are setting
         // that data to our text views and image view.
@@ -117,12 +121,12 @@ public class BookDetails extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        //addfc
+
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //query1.guardarFavorito("Sergio",libro);
-                // Create a new user with a first and last name
+
+                // Create a new book
                 Map<String, Object> book = new HashMap<>();
                 book.put("title", title);
                 book.put("subtitle", subtitle);
@@ -151,6 +155,30 @@ public class BookDetails extends AppCompatActivity {
                             }
                         });
                 Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+
+                db.collection("books").document(title)
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error deleting document", e);
+                            }
+                        });
+                Toast.makeText(BookDetails.this, "Borrado correctamente", Toast.LENGTH_SHORT).show();
             }
         });
     }
