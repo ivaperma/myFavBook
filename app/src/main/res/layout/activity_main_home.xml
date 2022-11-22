@@ -64,9 +64,9 @@
         android:id="@+id/btn_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/blue_claro"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        app:itemBackground="@color/buttons"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu" />
