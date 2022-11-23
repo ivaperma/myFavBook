@@ -8,6 +8,7 @@
     tools:context=".activities.More">
 
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,5 +18,23 @@
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu"
         android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/qus1"
+            android:layout_width="299dp"
+            android:layout_height="match_parent"
+            android:text="How does ringee™ works?"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/ans2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="no ringee™ does'nt have this functionality, it will be soon available to the users"
+            android:textColor="@color/black"
+            android:visibility="gone"/>
 
 </RelativeLayout>
