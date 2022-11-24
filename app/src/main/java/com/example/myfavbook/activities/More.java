@@ -18,6 +18,8 @@ public class More extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     private TextView q1;
+    private TextView a1;
+    private TextView q2;
     private TextView a2;
 
     @Override
@@ -61,9 +63,23 @@ public class More extends AppCompatActivity {
         });
 
         q1 = findViewById(R.id.qus1);
-        a2 = findViewById(R.id.ans2);
+        a1 = findViewById(R.id.ans1);
         //initializing on click listner for our button.
         q1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(a1.getVisibility()== View.GONE){
+                    a1.setVisibility(View.VISIBLE);
+                }
+                else{
+                    a1.setVisibility(View.GONE);
+                }
+            }
+        });
+        q2 = findViewById(R.id.qus2);
+        a2 = findViewById(R.id.ans2);
+        //initializing on click listner for our button.
+        q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(a2.getVisibility()== View.GONE){

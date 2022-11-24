@@ -21,20 +21,41 @@
 
         <TextView
             android:id="@+id/qus1"
-            android:layout_width="299dp"
-            android:layout_height="match_parent"
-            android:text="How does ringee™ works?"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="what does it do the app my favourite book?"
             android:textColor="@color/black">
 
         </TextView>
 
         <TextView
-            android:id="@+id/ans2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/ans1"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:layout_marginTop="20dp"
-            android:text="no ringee™ does'nt have this functionality, it will be soon available to the users"
+            android:text="This app have been created to helps us to find a book and the gives un the option of buy it and also put in the secction my books where there are all my favourite books."
             android:textColor="@color/black"
-            android:visibility="gone"/>
+            android:visibility="gone">
+        </TextView>
+
+        <TextView
+            android:id="@+id/qus2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="40dp"
+            android:text="How can I search a book?"
+            android:textColor="@color/black">
+    </TextView>
+    <TextView
+        android:id="@+id/ans2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="60dp"
+        android:text="At first you have to go to the boton search that is en the botton menu. And then put the title of the book in the search bar"
+        android:textColor="@color/black"
+        android:visibility="gone">
+    </TextView>
+
+
 
 </RelativeLayout>
