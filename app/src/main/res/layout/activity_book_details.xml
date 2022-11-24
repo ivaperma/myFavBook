@@ -148,6 +148,26 @@
                 android:text="ADD" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <!--button for adding to favourite-->
+
+            <Button
+                android:id="@+id/idBtnDelete"
+                android:layout_width="386dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="17dp"
+                android:layout_weight="1"
+                android:text="DELETE" />
+        </LinearLayout>
+
 
 
 

@@ -16,9 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/blue_claro"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        app:itemBackground="@color/buttons"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
         app:menu="@menu/menu" />
 
 
@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/idLLsearch" />
 
-    <!--progressbar for displaying our loadinig indicator-->
+    <!--progressbar for displaying our loading indicator-->
     <ProgressBar
         android:id="@+id/idLoadingPB"
         android:visibility="gone"
