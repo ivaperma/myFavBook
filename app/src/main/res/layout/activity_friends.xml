@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.Friends"
-    android:background="@drawable/friends">
+    android:background="@drawable/background_new">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_navigator"

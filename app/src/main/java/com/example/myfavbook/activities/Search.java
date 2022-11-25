@@ -163,7 +163,7 @@ public class Search extends AppCompatActivity {
                         mRecyclerView.setLayoutManager(linearLayoutManager);
                         mRecyclerView.setAdapter(adapter);
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     //displaying a toast message when we get any error from API
                     Toast.makeText(Search.this, "No Data Found" + e, Toast.LENGTH_SHORT).show();

@@ -12,8 +12,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="acceder">Acceder</string>
     <string name="title_activity_my_books">MyBooks</string>
-
+    <string name="contentDescription">logo</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="title_activity_friends">Friends</string>
+    <string name="logout">Logout</string>
 </resources>
