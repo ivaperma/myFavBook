@@ -21,6 +21,14 @@ public class More extends AppCompatActivity {
     private TextView a1;
     private TextView q2;
     private TextView a2;
+    private TextView q3;
+    private TextView a3;
+    private TextView q4;
+    private TextView a4;
+    private TextView q5;
+    private TextView a5;
+    private TextView q6;
+    private TextView a6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +95,62 @@ public class More extends AppCompatActivity {
                 }
                 else{
                     a2.setVisibility(View.GONE);
+                }
+            }
+        });
+        q3 = findViewById(R.id.qus3);
+        a3 = findViewById(R.id.ans3);
+        //initializing on click listner for our button.
+        q3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(a3.getVisibility()== View.GONE){
+                    a3.setVisibility(View.VISIBLE);
+                }
+                else{
+                    a3.setVisibility(View.GONE);
+                }
+            }
+        });
+        q4 = findViewById(R.id.qus4);
+        a4 = findViewById(R.id.ans4);
+        //initializing on click listner for our button.
+        q4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(a4.getVisibility()== View.GONE){
+                    a4.setVisibility(View.VISIBLE);
+                }
+                else{
+                    a4.setVisibility(View.GONE);
+                }
+            }
+        });
+        q5 = findViewById(R.id.qus5);
+        a5 = findViewById(R.id.ans5);
+        //initializing on click listner for our button.
+        q5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(a5.getVisibility()== View.GONE){
+                    a5.setVisibility(View.VISIBLE);
+                }
+                else{
+                    a5.setVisibility(View.GONE);
+                }
+            }
+        });
+        q6 = findViewById(R.id.qus6);
+        a6 = findViewById(R.id.ans6);
+        //initializing on click listner for our button.
+        q6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(a6.getVisibility()== View.GONE){
+                    a6.setVisibility(View.VISIBLE);
+                }
+                else{
+                    a6.setVisibility(View.GONE);
                 }
             }
         });
