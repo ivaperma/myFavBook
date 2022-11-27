@@ -45,7 +45,7 @@ public class BookDetails extends AppCompatActivity {
     private ArrayList<String> authors;
 
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
-    Button previewBtn, buyBtn, addBtn, deleteBtn;
+        Button previewBtn, buyBtn, addBtn, deleteBtn;
     private ImageView bookIV;
     private Queries query1 = new Queries();
 
@@ -83,8 +83,8 @@ public class BookDetails extends AppCompatActivity {
         buyLink = getIntent().getStringExtra("buyLink");
 
         BookInfo libro = new BookInfo(title, subtitle, authors, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
-        // after getting the data we are setting
-        // that data to our text views and image view.
+        // after getting the data we are setting that data to our text views and image view.
+
         titleTV.setText(title);
         subtitleTV.setText(subtitle);
         publisherTV.setText(publisher);
@@ -102,8 +102,7 @@ public class BookDetails extends AppCompatActivity {
                     Toast.makeText(BookDetails.this, "No preview Link present", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // if the link is present we are opening
-                // that link via an intent.
+                // if the link is present we are opening that link via an intent.
                 Uri uri = Uri.parse(previewLink);
                 Intent i = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(i);
@@ -119,8 +118,7 @@ public class BookDetails extends AppCompatActivity {
                     Toast.makeText(BookDetails.this, "No buy page present for this book", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // if the link is present we are opening
-                // the link via an intent.
+                // if the link is present we are opening the link via an intent.
                 Uri uri = Uri.parse(buyLink);
                 Intent i = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(i);
@@ -130,6 +128,7 @@ public class BookDetails extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             //retrieving document/book from firebase
                 DocumentReference docRef = db.collection("books").document(title);
                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -208,6 +207,7 @@ public class BookDetails extends AppCompatActivity {
                                         });
                                 Log.d(TAG, "No such document");
                                 Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
+
                             }
                         } else {
                             Log.d(TAG, "get failed with ", task.getException());
@@ -243,6 +243,9 @@ public class BookDetails extends AppCompatActivity {
                             }
                         });
                 Toast.makeText(BookDetails.this, "Borrado correctamente", Toast.LENGTH_SHORT).show();
+                // Refresh mybook's instance to apply changes when a book is deleted
+                startActivity(new Intent(getApplicationContext(), MyBooks.class));
+                finish();
             }
         });
     }

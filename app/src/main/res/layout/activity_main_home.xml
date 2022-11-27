@@ -18,7 +18,7 @@
         android:layout_marginBottom="45dp"
         android:text="Home"
         android:textColor="@color/white"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageLogo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_navigator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/contentDescription" />
 
     <Button
         android:id="@+id/btnLogout"
@@ -48,17 +49,28 @@
         android:layout_height="63dp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="100dp"
-
-        android:backgroundTint="#C9BA34"
+        android:backgroundTint="@color/buttons"
         android:textColor="#070707"
         android:textStyle="bold"
         app:icon="@drawable/logout"
         app:iconGravity="textEnd"
         app:iconTint="#090909"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textLogout"
+        android:layout_width="58dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/roboto_serif"
+        android:text="@string/logout"
+        android:textColor="@color/buttons"
+        android:textSize="16sp"
+        android:layout_marginStart="38dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_navigator"
@@ -70,5 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
