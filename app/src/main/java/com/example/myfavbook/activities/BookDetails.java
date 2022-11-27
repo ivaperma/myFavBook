@@ -20,10 +20,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -46,6 +50,7 @@ public class BookDetails extends AppCompatActivity {
     private Queries query1 = new Queries();
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,37 +129,98 @@ public class BookDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Create a new book
-                Map<String, Object> book = new HashMap<>();
-                book.put("title", title);
-                book.put("subtitle", subtitle);
-                book.put("publisher", publisher);
-                book.put("publishedDate",publishedDate);
-                book.put("description",description);
-                book.put("pageCount", pageCount);
-                book.put("thumbnail",thumbnail);
-                book.put("previewLink",previewLink);
-                book.put("infoLink",infoLink);
-                book.put("buyLink", buyLink);
+            //retrieving document/book from firebase
+                DocumentReference docRef = db.collection("books").document(title);
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            //if document exists we don´t add a new book
+                            if (document.exists()) {
+                                if (!dbAuth.getCurrentUser().getEmail().equals(document.getData().get("owner").toString())){
+                                    Map<String, Object> book = new HashMap<>();
+                                    book.put("title", title);
+                                    book.put("subtitle", subtitle);
+                                    book.put("publisher", publisher);
+                                    book.put("publishedDate",publishedDate);
+                                    book.put("description",description);
+                                    book.put("pageCount", pageCount);
+                                    book.put("thumbnail",thumbnail);
+                                    book.put("previewLink",previewLink);
+                                    book.put("infoLink",infoLink);
+                                    book.put("buyLink", buyLink);
+                                    book.put("owner",dbAuth.getCurrentUser().getEmail());
 
-                // Add a new document with a generated ID
-                db.collection("books").document(title)
-                        .set(book)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d(TAG, "DocumentSnapshot successfully written!");
+                                    // Add a new document with a generated ID
+
+                                    db.collection("books").document(title)
+                                            .set(book)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Log.d(TAG, "DocumentSnapshot successfully written!");
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Log.w(TAG, "Error writing document", e);
+                                                }
+                                            });
+
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                //if document doesn´t exists we add a new book
+                                }else{
+                                    Toast.makeText(BookDetails.this, "El libro existe, no se puede añadir", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                // Create a new book
+                                Map<String, Object> book = new HashMap<>();
+                                book.put("title", title);
+                                book.put("subtitle", subtitle);
+                                book.put("publisher", publisher);
+                                book.put("publishedDate",publishedDate);
+                                book.put("description",description);
+                                book.put("pageCount", pageCount);
+                                book.put("thumbnail",thumbnail);
+                                book.put("previewLink",previewLink);
+                                book.put("infoLink",infoLink);
+                                book.put("buyLink", buyLink);
+                                book.put("owner",dbAuth.getCurrentUser().getEmail());
+
+                                // Add a new document with a generated ID
+
+                                db.collection("books").document(title)
+                                        .set(book)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "DocumentSnapshot successfully written!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing document", e);
+                                            }
+                                        });
+                                Log.d(TAG, "No such document");
+                                Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
+
                             }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error writing document", e);
-                            }
-                        });
-                Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.d(TAG, "get failed with ", task.getException());
+                            Toast.makeText(BookDetails.this, "Error al añadir: "+task.getException().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
             }
         });
+
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){
 
