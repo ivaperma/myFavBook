@@ -19,6 +19,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myfavbook.R;
+import com.example.myfavbook.entities.Book;
+import com.example.myfavbook.adapters.BookAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -30,7 +32,7 @@ public class Search extends AppCompatActivity {
 
     //creating variables for our request queue, array list, progressbar, edittext, image button and our recycler view.
     private RequestQueue mRequestQueue;
-    private ArrayList<BookInfo> bookInfoArrayList;
+    private ArrayList<Book> bookInfoArrayList;
     private ProgressBar progressBar;
     private EditText searchEdt;
     private ImageButton searchBtn;
@@ -139,7 +141,7 @@ public class Search extends AppCompatActivity {
                         }
                     }
                     //after extracting all the data we are saving this data in our modal class.
-                    BookInfo bookInfo = new BookInfo(title, subtitle, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
+                    Book bookInfo = new Book(title, subtitle, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
                     //below line is use to pass our modal class in our array list.
                     bookInfoArrayList.add(bookInfo);
                     //below line is use to pass our array list in adapter class.

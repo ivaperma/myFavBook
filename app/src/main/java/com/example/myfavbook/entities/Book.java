@@ -1,13 +1,13 @@
-package com.example.myfavbook.activities;
+package com.example.myfavbook.entities;
 
 import java.util.ArrayList;
 
-public class BookInfo {
+public class Book {
 
-    // creating a constructor class for our BookInfo
-    public BookInfo(String title, String subtitle, String publisher,
-                    String publishedDate, String description, int pageCount, String thumbnail,
-                    String previewLink, String infoLink, String buyLink) {
+    // creating a constructor class for our class
+    public Book(String title, String subtitle, String publisher,
+                String publishedDate, String description, int pageCount, String thumbnail,
+                String previewLink, String infoLink, String buyLink) {
         this.title = title;
         this.subtitle = subtitle;
         this.authors = authors;
@@ -21,8 +21,7 @@ public class BookInfo {
         this.buyLink = buyLink;
     }
 
-    // creating string, int and array list
-    // variables for our book details
+    // creating string, int and array list variables for our book details
     private String title;
     private String subtitle;
     private ArrayList<String> authors;

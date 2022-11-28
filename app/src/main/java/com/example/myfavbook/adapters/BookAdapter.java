@@ -1,4 +1,4 @@
-package com.example.myfavbook.activities;
+package com.example.myfavbook.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfavbook.R;
+import com.example.myfavbook.activities.BookDetails;
+import com.example.myfavbook.entities.Book;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -19,11 +21,11 @@ import java.util.ArrayList;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
     // creating variables for arraylist and context.
-    private final ArrayList<BookInfo> bookInfoArrayList;
+    private final ArrayList<Book> bookInfoArrayList;
     private final Context mContext;
 
     // creating constructor for array list and context.
-    public BookAdapter(ArrayList<BookInfo> bookInfoArrayList, Context mContext) {
+    public BookAdapter(ArrayList<Book> bookInfoArrayList, Context mContext) {
         this.bookInfoArrayList = bookInfoArrayList;
         this.mContext = mContext;
     }
@@ -40,7 +42,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
 
         // inside on bind view holder method we are setting ou data to each UI component.
-        BookInfo bookInfo = bookInfoArrayList.get(position);
+        Book bookInfo = bookInfoArrayList.get(position);
         holder.nameTV.setText(bookInfo.getTitle());
         holder.publisherTV.setText(bookInfo.getPublisher());
         holder.pageCountTV.setText("Number of Pages : " + bookInfo.getPageCount());

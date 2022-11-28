@@ -15,7 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myfavbook.R;
-import com.example.myfavbook.queries.Queries;
+import com.example.myfavbook.entities.Book;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,9 +36,9 @@ public class BookDetails extends AppCompatActivity {
     private ArrayList<String> authors;
     private ArrayList<String> review;
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
-        Button previewBtn, buyBtn, addBtn, deleteBtn;
+    Button previewBtn, buyBtn, addBtn, deleteBtn;
     private ImageView bookIV;
-    private Queries query1 = new Queries();
+
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth dbAuth = FirebaseAuth.getInstance();
@@ -73,7 +73,7 @@ public class BookDetails extends AppCompatActivity {
         infoLink = getIntent().getStringExtra("infoLink");
         buyLink = getIntent().getStringExtra("buyLink");
 
-        BookInfo libro = new BookInfo(title, subtitle, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
+        Book libro = new Book(title, subtitle, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
         // after getting the data we are setting that data to our text views and image view.
 
         titleTV.setText(title);
@@ -112,7 +112,7 @@ public class BookDetails extends AppCompatActivity {
 
         addBtn.setOnClickListener(v -> {
 
-        //retrieving document/book from firebase
+            //retrieving document/book from firebase
             DocumentReference docRef = db.collection("books").document(title);
             docRef.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
@@ -141,8 +141,8 @@ public class BookDetails extends AppCompatActivity {
                                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
                                     .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
 
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        //if document doesn´t exists we add a new book
+                            Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                            //if document doesn´t exists we add a new book
                         }else{
                             Toast.makeText(BookDetails.this, "El libro existe, no se puede añadir", Toast.LENGTH_SHORT).show();
                         }
@@ -159,17 +159,16 @@ public class BookDetails extends AppCompatActivity {
                         book.put("previewLink",previewLink);
                         book.put("infoLink",infoLink);
                         book.put("buyLink", buyLink);
-                        book.put("owner", Objects.requireNonNull(dbAuth.getCurrentUser()).getEmail());
 
                         // Add a new document with a generated ID
-
-                        db.collection("books").document(title)
-                                .set(book)
-                                .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
-                                .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
-                        Log.d(TAG, "No such document");
-                        Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
-
+                        if (Objects.nonNull(dbAuth.getCurrentUser().getEmail())) {
+                            db.collection(Objects.requireNonNull(dbAuth.getCurrentUser()).getEmail()).document(title)
+                                    .set(book)
+                                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written!"))
+                                    .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
+                            Log.d(TAG, "No such document");
+                            Toast.makeText(BookDetails.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
@@ -184,7 +183,7 @@ public class BookDetails extends AppCompatActivity {
 
         deleteBtn.setOnClickListener(view -> {
 
-            db.collection("books").document(title)
+            db.collection(dbAuth.getCurrentUser().getEmail()).document(title)
                     .delete()
                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully deleted!"))
                     .addOnFailureListener(e -> Log.w(TAG, "Error deleting document", e));
