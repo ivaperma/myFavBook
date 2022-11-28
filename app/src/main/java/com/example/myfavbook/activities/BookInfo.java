@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class BookInfo {
 
     // creating a constructor class for our BookInfo
-    public BookInfo(String title, String subtitle, ArrayList<String> authors, String publisher,
+    public BookInfo(String title, String subtitle, String publisher,
                     String publishedDate, String description, int pageCount, String thumbnail,
                     String previewLink, String infoLink, String buyLink) {
         this.title = title;
