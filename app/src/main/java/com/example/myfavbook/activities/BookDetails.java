@@ -189,7 +189,7 @@ public class BookDetails extends AppCompatActivity {
                     .addOnFailureListener(e -> Log.w(TAG, "Error deleting document", e));
             Toast.makeText(BookDetails.this, "Borrado correctamente", Toast.LENGTH_SHORT).show();
             // Refresh mybooks instance to apply changes when a book is deleted
-            startActivity(new Intent(getApplicationContext(), MyBooks.class));
+            startActivity(new Intent(getApplicationContext(), Books.class));
             finish();
         });
     }
