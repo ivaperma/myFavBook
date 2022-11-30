@@ -59,10 +59,10 @@
 
 
         <TextView
+            android:id="@+id/idTVDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:id="@+id/idTVDate"
             android:text="date"
             android:padding="3dp"
             android:layout_below="@id/idTVPageCount"
@@ -70,6 +70,30 @@
             android:textColor="@color/black"
             android:textSize="11sp"
             />
+
+        <TextView
+
+            android:id="@+id/idRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/idTextReview"
+            android:layout_below="@id/idTVPageCount"
+            android:layout_marginStart="137dp"
+            android:layout_marginEnd="186sp"
+            android:layout_toStartOf="@+id/idTVDate"
+            android:padding="3dp"
+            android:text="Rate"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/idTextReview"
+            android:layout_width="267dp"
+            android:layout_height="64dp"
+            android:layout_below="@id/idTVDate"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/idIVbook"
+            android:textColor="@color/black"
+            android:text="Review" />
 
 
     </RelativeLayout>

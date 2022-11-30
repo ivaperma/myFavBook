@@ -2,6 +2,8 @@ package com.example.myfavbook.activities;
 
 import static android.content.ContentValues.TAG;
 import static com.example.myfavbook.R.id.idBtnDelete;
+import static com.example.myfavbook.R.id.idBtnRate;
+import static com.example.myfavbook.R.id.idBtnReview;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -36,7 +38,7 @@ public class BookDetails extends AppCompatActivity {
     private ArrayList<String> authors;
     private ArrayList<String> review;
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
-    Button previewBtn, buyBtn, addBtn, deleteBtn;
+    Button previewBtn, buyBtn, addBtn, deleteBtn, rateBtn, reviewBtn;
     private ImageView bookIV;
 
 
@@ -60,6 +62,8 @@ public class BookDetails extends AppCompatActivity {
         addBtn = findViewById(R.id.idBtnAdd);
         deleteBtn = findViewById(idBtnDelete);
         bookIV = findViewById(R.id.idIVbook);
+        rateBtn = findViewById(idBtnRate);
+        reviewBtn = findViewById(idBtnReview);
 
         // getting the data which we have passed from our adapter class.
         title = getIntent().getStringExtra("title");
@@ -189,8 +193,16 @@ public class BookDetails extends AppCompatActivity {
                     .addOnFailureListener(e -> Log.w(TAG, "Error deleting document", e));
             Toast.makeText(BookDetails.this, "Borrado correctamente", Toast.LENGTH_SHORT).show();
             // Refresh mybooks instance to apply changes when a book is deleted
-            startActivity(new Intent(getApplicationContext(), MyBooks.class));
+            startActivity(new Intent(getApplicationContext(), Books.class));
             finish();
+        });
+
+        reviewBtn.setOnClickListener(view ->{
+            startActivity(new Intent(getApplicationContext(), Books.class));
+        });
+
+        rateBtn.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), Books.class));
         });
     }
 }
