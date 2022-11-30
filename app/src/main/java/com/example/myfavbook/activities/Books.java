@@ -112,6 +112,8 @@ public class Books extends AppCompatActivity {
                 (String) document.getData().get("previewLink"),
                 (String) document.getData().get("infoLink"),
                 (String) document.getData().get("buyLink")
+
+
         );
     }
 }

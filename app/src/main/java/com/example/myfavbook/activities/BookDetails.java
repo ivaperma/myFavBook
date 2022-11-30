@@ -4,12 +4,18 @@ import static android.content.ContentValues.TAG;
 import static com.example.myfavbook.R.id.idBtnDelete;
 import static com.example.myfavbook.R.id.idBtnRate;
 import static com.example.myfavbook.R.id.idBtnReview;
+import static com.example.myfavbook.R.id.rate;
+
+import static com.example.myfavbook.R.id.review;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,10 +24,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myfavbook.R;
 import com.example.myfavbook.entities.Book;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -33,10 +42,13 @@ import java.util.Objects;
 public class BookDetails extends AppCompatActivity {
 
     // creating variables for strings,text view, image views and button.
-    String title, subtitle, publisher, publishedDate, description, thumbnail, previewLink, infoLink, buyLink;
+    String title, subtitle, publisher, publishedDate, description, thumbnail, previewLink, infoLink, buyLink, review;
+    EditText mReview, mRate;
+    
     int pageCount;
     private ArrayList<String> authors;
-    private ArrayList<String> review;
+
+
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
     Button previewBtn, buyBtn, addBtn, deleteBtn, rateBtn, reviewBtn;
     private ImageView bookIV;
@@ -64,6 +76,10 @@ public class BookDetails extends AppCompatActivity {
         bookIV = findViewById(R.id.idIVbook);
         rateBtn = findViewById(idBtnRate);
         reviewBtn = findViewById(idBtnReview);
+        mReview = findViewById(R.id.review);
+        mRate = findViewById(rate);
+
+
 
         // getting the data which we have passed from our adapter class.
         title = getIntent().getStringExtra("title");
@@ -77,6 +93,7 @@ public class BookDetails extends AppCompatActivity {
         infoLink = getIntent().getStringExtra("infoLink");
         buyLink = getIntent().getStringExtra("buyLink");
 
+
         Book libro = new Book(title, subtitle, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
         // after getting the data we are setting that data to our text views and image view.
 
@@ -87,6 +104,11 @@ public class BookDetails extends AppCompatActivity {
         descTV.setText(description);
         pageTV.setText("No Of Pages : " + pageCount);
         Picasso.get().load(thumbnail).into(bookIV);
+        setTextReview();
+        setTextRate();
+
+
+
 
         // adding on click listener for our preview button.
         previewBtn.setOnClickListener(v -> {
@@ -136,7 +158,7 @@ public class BookDetails extends AppCompatActivity {
                             book.put("infoLink",infoLink);
                             book.put("buyLink", buyLink);
                             book.put("owner",dbAuth.getCurrentUser().getEmail());
-                            book.put("review", review);
+
 
                             // Add a new document with a generated ID
 
@@ -198,11 +220,88 @@ public class BookDetails extends AppCompatActivity {
         });
 
         reviewBtn.setOnClickListener(view ->{
-            startActivity(new Intent(getApplicationContext(), Books.class));
+            String review = mReview.getText().toString().trim();
+            // Update one field, creating the document if it does not already exist.
+            Map<String, Object> data = new HashMap<>();
+            data.put("review", review);
+
+            db.collection(dbAuth.getCurrentUser().getEmail()).document(title)
+                    .set(data, SetOptions.merge());
+           startActivity(new Intent(getApplicationContext(), Books.class));
         });
 
         rateBtn.setOnClickListener(view -> {
+            String rate = mRate.getText().toString().trim();
+            // Update one field, creating the document if it does not already exist.
+            Map<String, Object> data = new HashMap<>();
+            data.put("rate", rate);
+
+            db.collection(dbAuth.getCurrentUser().getEmail()).document(title)
+                    .set(data, SetOptions.merge());
             startActivity(new Intent(getApplicationContext(), Books.class));
         });
+
+
+
+    }
+
+    private void setTextReview(){
+
+        DocumentReference docRef = db.collection(dbAuth.getCurrentUser().getEmail()).document(title);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+
+                     if (document.exists()) {
+                         if(document.getData().get("review") != null){
+                             mReview.setText((String) document.getData().get("review"));
+
+                         }else{
+                             mReview.setText(null);
+                         }
+
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+
+    }
+
+    private void setTextRate(){
+
+        DocumentReference docRef = db.collection(dbAuth.getCurrentUser().getEmail()).document(title);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+
+                    if (document.exists()) {
+                        if(document.getData().get("rate") != null){
+                            mRate.setText((String) document.getData().get("rate"));
+
+                        }else{
+                            mRate.setText(null);
+                        }
+
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+
     }
 }
