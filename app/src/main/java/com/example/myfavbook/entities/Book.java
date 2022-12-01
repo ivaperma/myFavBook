@@ -19,6 +19,7 @@ public class Book {
         this.previewLink = previewLink;
         this.infoLink = infoLink;
         this.buyLink = buyLink;
+
     }
 
     // creating string, int and array list variables for our book details
@@ -33,6 +34,10 @@ public class Book {
     private String previewLink;
     private String infoLink;
     private String buyLink;
+
+
+
+
 
     // creating getter and setter methods
     public String getTitle() {
