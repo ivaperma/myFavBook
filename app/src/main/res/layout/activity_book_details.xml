@@ -160,6 +160,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RatingBar
+                android:id="@+id/simpleRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="8"
+                /><!-- number of stars to be displayed--></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
             android:orientation="horizontal"
@@ -167,15 +178,60 @@
 
             <!--button for adding review to book-->
 
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/review"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="@string/review"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                />
+
             <Button
                 android:id="@+id/idBtnReview"
-                android:layout_width="386dp"
+                android:layout_width="131dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="17dp"
                 android:layout_weight="1"
                 android:text="Review"
                 android:textAllCaps="false" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/rate"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="@string/rate"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
 
             <Button
                 android:id="@+id/idBtnRate"
@@ -185,57 +241,7 @@
                 android:layout_marginRight="17dp"
                 android:layout_weight="1"
                 android:text="Rate"
-                android:textAllCaps="false"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RatingBar
-            android:id="@+id/simpleRatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="7"
-                /><!-- number of stars to be displayed--></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <EditText
-                android:id="@+id/review"
-                android:layout_width="379dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="28dp"
-                android:background="#FFFCFC"
-                android:ems="10"
-                android:hint="Review"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                 />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <EditText
-                android:id="@+id/rate"
-                android:layout_width="379dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="28dp"
-                android:background="#FFFCFC"
-                android:ems="10"
-                android:hint="Rate"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                />
+                android:textAllCaps="false" />
         </LinearLayout>
 
 

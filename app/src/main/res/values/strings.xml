@@ -17,4 +17,6 @@
     <string name="previous">Previous</string>
     <string name="title_activity_friends">Friends</string>
     <string name="logout">Logout</string>
+    <string name="rate">Rate</string>
+    <string name="review">Review</string>
 </resources>
