@@ -7,6 +7,7 @@ import static com.example.myfavbook.R.id.idBtnReview;
 import static com.example.myfavbook.R.id.rate;
 
 import static com.example.myfavbook.R.id.review;
+import static com.example.myfavbook.R.id.simpleRatingBar;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,9 +46,14 @@ public class BookDetails extends AppCompatActivity {
     // creating variables for strings,text view, image views and button.
     String title, subtitle, publisher, publishedDate, description, thumbnail, previewLink, infoLink, buyLink, review;
     EditText mReview, mRate;
+    String sTextFromMRate;
     
     int pageCount;
     private ArrayList<String> authors;
+
+
+
+
 
 
     TextView titleTV, subtitleTV, publisherTV, descTV, pageTV, publishDateTV;
@@ -59,6 +66,9 @@ public class BookDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
 
@@ -236,9 +246,12 @@ public class BookDetails extends AppCompatActivity {
             Map<String, Object> data = new HashMap<>();
             data.put("rate", rate);
 
+
             db.collection(dbAuth.getCurrentUser().getEmail()).document(title)
                     .set(data, SetOptions.merge());
             startActivity(new Intent(getApplicationContext(), Books.class));
+
+
         });
 
 
@@ -281,15 +294,20 @@ public class BookDetails extends AppCompatActivity {
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                RatingBar simpleRatingBar = findViewById(R.id.simpleRatingBar); // initiate a rating bar
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
 
                     if (document.exists()) {
                         if(document.getData().get("rate") != null){
                             mRate.setText((String) document.getData().get("rate"));
-
+                            sTextFromMRate = mRate.getText().toString();
+                            simpleRatingBar.setRating(Float.parseFloat(sTextFromMRate));
+                            Log.d(TAG, "Simple Rating BAR " + simpleRatingBar);
+                            Log.d(TAG, "MRATE: " + mRate);
                         }else{
                             mRate.setText(null);
+
                         }
 
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
