@@ -164,7 +164,7 @@
 
             <RatingBar
                 android:id="@+id/simpleRatingBar"
-                android:layout_width="387dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:numStars="5" /><!-- number of stars to be displayed-->
