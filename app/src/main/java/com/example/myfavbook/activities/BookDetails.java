@@ -301,10 +301,10 @@ public class BookDetails extends AppCompatActivity {
                     if (document.exists()) {
                         if(document.getData().get("rate") != null){
                             mRate.setText((String) document.getData().get("rate"));
+                            //equal Rating bar value to rate value
                             sTextFromMRate = mRate.getText().toString();
                             simpleRatingBar.setRating(Float.parseFloat(sTextFromMRate));
-                            Log.d(TAG, "Simple Rating BAR " + simpleRatingBar);
-                            Log.d(TAG, "MRATE: " + mRate);
+
                         }else{
                             mRate.setText(null);
 
