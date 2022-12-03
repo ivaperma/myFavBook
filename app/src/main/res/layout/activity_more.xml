@@ -48,7 +48,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginRight="10dp"
             android:text="what can I do with this app?"
-
+            android:textSize="15dp"
             android:textColor="@color/white">
 
         </TextView>
@@ -62,6 +62,7 @@
             android:layout_marginRight="10dp"
             android:text="This app have been created to helps us to find a book and the gives un the option of buy it and also put in the secction my books where there are all my favourite books."
             android:textColor="@color/black"
+            android:textSize="15dp"
             android:background="@color/grey"
             android:visibility="gone">
         </TextView>
@@ -82,17 +83,19 @@
             android:layout_marginTop="200dp"
             android:layout_marginRight="10dp"
             android:text="How can I search a book?"
-            android:textColor="@color/white">
+            android:textColor="@color/white"
+            android:textSize="15dp">
     </TextView>
     <TextView
         android:id="@+id/ans2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="220dp"
         android:layout_marginRight="10dp"
         android:text="At first you have to click on the option of searching and put the name of the book you are looking for in the serach bar."
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:background="@color/grey"
         android:visibility="gone">
     </TextView>
@@ -102,27 +105,29 @@
         android:layout_height="30dp"
         android:src="@drawable/flecha"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="275dp"
+        android:layout_marginTop="295dp"
         android:layout_marginRight="10dp"/>
     <TextView
         android:id="@+id/qus3"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         android:layout_marginRight="10dp"
         android:text="How can I put a book on favourites?"
-        android:textColor="@color/white">
+        android:textColor="@color/white"
+        android:textSize="15dp">
     </TextView>
     <TextView
         android:id="@+id/ans3"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="320dp"
         android:layout_marginRight="10dp"
         android:text="When you have located the book there is an option that says 'ADD', and this button send our book to the option of 'My books' that is where all my fovourites books are located."
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:background="@color/grey"
         android:visibility="gone">
     </TextView>
@@ -142,7 +147,8 @@
         android:layout_marginTop="400dp"
         android:layout_marginRight="10dp"
         android:text="Where is the button to exit?"
-        android:textColor="@color/white">
+        android:textColor="@color/white"
+        android:textSize="15dp">
     </TextView>
     <TextView
         android:id="@+id/ans4"
@@ -153,6 +159,7 @@
         android:layout_marginRight="10dp"
         android:text="This button is on the window 'Home' and at the top of the screen is the exit button."
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:background="@color/grey"
         android:visibility="gone">
     </TextView>
@@ -172,7 +179,8 @@
         android:layout_marginTop="500dp"
         android:layout_marginRight="10dp"
         android:text="How can I delete a book in the option my books?"
-        android:textColor="@color/white">
+        android:textColor="@color/white"
+        android:textSize="15dp">
     </TextView>
     <TextView
         android:id="@+id/ans5"
@@ -181,8 +189,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="520dp"
         android:layout_marginRight="10dp"
-        android:text="When you have located the book you want to delete, you have to click on it and then the option appears saying 'delete'."
+        android:text="When you have located the book and you want to delete, you have to click on it and then the option appears saying 'delete'."
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:background="@color/grey"
         android:visibility="gone">
     </TextView>
@@ -201,8 +210,9 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="600dp"
         android:layout_marginRight="10dp"
-        android:text="How can go to the window where I can buy the book?"
-        android:textColor="@color/white">
+        android:text="How can I go to the window where I can buy the book?"
+        android:textColor="@color/white"
+        android:textSize="15dp">
     </TextView>
     <TextView
         android:id="@+id/ans6"
@@ -213,6 +223,7 @@
         android:layout_marginTop="620dp"
         android:text="At first, you have to find the book in the search bar, then you have to click on it and the option 'buy' appears. This button will send you to the window where you can buy it."
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:background="@color/grey"
         android:visibility="gone">
     </TextView>
