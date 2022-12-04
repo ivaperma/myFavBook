@@ -243,6 +243,21 @@
                 android:textAllCaps="false" />
         </LinearLayout>
 
+        <EditText
+            android:layout_width="239dp"
+            android:layout_height="100dp"
+            android:text="Review1"
+            android:background="@drawable/border"/>
+        <EditText
+            android:layout_width="239dp"
+            android:layout_height="100dp"
+            android:text="Review2"
+            android:background="@drawable/border"/>
+        <EditText
+            android:layout_width="239dp"
+            android:layout_height="100dp"
+            android:text="Review3"
+            android:background="@drawable/border"/>
 
     </LinearLayout>
 
