@@ -60,7 +60,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="120dp"
             android:layout_marginRight="10dp"
-            android:text="This app have been created to helps us to find a book and the gives un the option of buy it and also put in the secction my books where there are all my favourite books."
+            android:text="This app have been created to help us to find a book and give us the option of buy it, and also put in the section mybooks where there are all my favourite books."
             android:textColor="@color/black"
             android:background="@color/grey"
             android:visibility="gone">
@@ -91,7 +91,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="220dp"
         android:layout_marginRight="10dp"
-        android:text="At first you have to click on the option of searching and put the name of the book you are looking for in the serach bar."
+        android:text="At first you have to click on the option of searching and put the name of the book you are looking for in the search bar."
         android:textColor="@color/black"
         android:background="@color/grey"
         android:visibility="gone">
@@ -121,7 +121,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="300dp"
         android:layout_marginRight="10dp"
-        android:text="When you have located the book there is an option that says 'ADD', and this button send our book to the option of 'My books' that is where all my fovourites books are located."
+        android:text="When you have located the book there is an option that says 'ADD', and this button send our book to the option of 'My books' that is where all my favourites books are located."
         android:textColor="@color/black"
         android:background="@color/grey"
         android:visibility="gone">
