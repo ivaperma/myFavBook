@@ -243,6 +243,26 @@
                 android:textAllCaps="false" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/review1"
+            android:layout_width="239dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="Review1" />
+
+        <TextView
+            android:id="@+id/review2"
+            android:layout_width="239dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="Review2" />
+
+        <TextView
+            android:id="@+id/review3"
+            android:layout_width="239dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
+            android:text="Review3" />
 
     </LinearLayout>
 
