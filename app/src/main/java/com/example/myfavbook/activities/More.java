@@ -3,6 +3,7 @@ package com.example.myfavbook.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,36 +25,9 @@ public class More extends AppCompatActivity {
         setContentView(R.layout.activity_more);
         bottomNavigationView = findViewById(R.id.btn_navigator);
         bottomNavigationView.setSelectedItemId(R.id.more);
+        bottomNavigationView.setOnItemSelectedListener(item -> selectView(item));
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId())
-            {
-                case R.id.more:
 
-                    return true;
-
-                case R.id.home:
-                    startActivity(new Intent(getApplicationContext(), MainHome.class));
-                    overridePendingTransition(0,0);
-                    return true;
-
-                case R.id.search:
-                    startActivity(new Intent(getApplicationContext(), Search.class));
-                    overridePendingTransition(0,0);
-                    return true;
-
-                case R.id.my_books:
-                    startActivity(new Intent(getApplicationContext(), Books.class));
-                    overridePendingTransition(0,0);
-                    return true;
-
-                case R.id.friends:
-                    startActivity(new Intent(getApplicationContext(), Friends.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-            }
-            return false;
-        });
 
         TextView q1 = findViewById(R.id.qus1);
         a1 = findViewById(R.id.ans1);
@@ -121,5 +95,35 @@ public class More extends AppCompatActivity {
                 a6.setVisibility(View.GONE);
             }
         });
+    }
+    //switch activities
+    private Boolean selectView(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.more:
+
+                return true;
+
+            case R.id.home:
+                startActivity(new Intent(getApplicationContext(), MainHome.class));
+                overridePendingTransition(0,0);
+                return true;
+
+            case R.id.search:
+                startActivity(new Intent(getApplicationContext(), Search.class));
+                overridePendingTransition(0,0);
+                return true;
+
+            case R.id.my_books:
+                startActivity(new Intent(getApplicationContext(), Books.class));
+                overridePendingTransition(0,0);
+                return true;
+
+            case R.id.friends:
+                startActivity(new Intent(getApplicationContext(), Friends.class));
+                overridePendingTransition(0, 0);
+                return true;
+        }
+        return false;
     }
 }

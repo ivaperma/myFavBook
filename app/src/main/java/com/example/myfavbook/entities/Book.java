@@ -12,7 +12,6 @@ public class Book implements Serializable {
     // creating string, int and array list variables for our book details
     private String title;
     private String subtitle;
-    private ArrayList<String> authors;
     private String publisher;
     private String publishedDate;
     private String description;
@@ -25,12 +24,12 @@ public class Book implements Serializable {
     private int totalRating;
     private Double rate;
 
+    //Constructors
     public Book(String title, String subtitle, String publisher,
                 String publishedDate, String description, int pageCount, String thumbnail,
                 String previewLink, String infoLink, String buyLink) {
         this.title = title;
         this.subtitle = subtitle;
-        this.authors = authors;
         this.publisher = publisher;
         this.publishedDate = publishedDate;
         this.description = description;
@@ -50,7 +49,6 @@ public class Book implements Serializable {
                 int totalRating, Double rate) {
         this.title = title;
         this.subtitle = subtitle;
-        this.authors = authors;
         this.publisher = publisher;
         this.publishedDate = publishedDate;
         this.description = description;
@@ -80,14 +78,6 @@ public class Book implements Serializable {
 
     public void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
-    }
-
-    public ArrayList<String> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(ArrayList<String> authors) {
-        this.authors = authors;
     }
 
     public String getPublisher() {

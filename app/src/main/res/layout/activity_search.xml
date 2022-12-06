@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/background_new"
     tools:context=".activities.Search">
 
@@ -21,6 +20,23 @@
         app:itemTextColor="@color/black"
         app:menu="@menu/menu" />
 
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="107dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/logo03"
+        android:contentDescription="@string/contentDescription"
+        app:layout_constraintBottom_toBottomOf="@id/btn_navigator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/idLLsearch"
@@ -49,12 +65,14 @@
 
     </LinearLayout>
 
+
     <!--recycler view for displaying our list of books-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVBooks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/idLLsearch" />
+
 
     <!--progressbar for displaying our loading indicator-->
     <ProgressBar
