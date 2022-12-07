@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myfavbook.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class More extends AppCompatActivity {
+public class Faq extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     private TextView a1, a2, a3, a4, a5, a6;
@@ -24,7 +24,7 @@ public class More extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
         bottomNavigationView = findViewById(R.id.btn_navigator);
-        bottomNavigationView.setSelectedItemId(R.id.more);
+        bottomNavigationView.setSelectedItemId(R.id.faq);
         bottomNavigationView.setOnItemSelectedListener(item -> selectView(item));
 
 
@@ -100,7 +100,7 @@ public class More extends AppCompatActivity {
     private Boolean selectView(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.more:
+            case R.id.faq:
 
                 return true;
 

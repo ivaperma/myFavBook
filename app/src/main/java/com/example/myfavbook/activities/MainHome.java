@@ -44,8 +44,8 @@ public class MainHome extends AppCompatActivity {
 
                 return true;
 
-            case R.id.more:
-                startActivity(new Intent(getApplicationContext(),More.class));
+            case R.id.faq:
+                startActivity(new Intent(getApplicationContext(), Faq.class));
                 overridePendingTransition(0,0);
                 return true;
             case R.id.search:

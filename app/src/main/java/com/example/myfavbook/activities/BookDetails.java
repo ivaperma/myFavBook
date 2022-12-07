@@ -338,24 +338,21 @@ public class BookDetails extends AppCompatActivity {
     private void setTextReview(){
 
         DocumentReference docRef = db.collection(dbAuth.getCurrentUser().getEmail()).document(title);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        if(document.getData().get("review") != null){
-                            mReview.setText((String) document.getData().get("review"));
-                        }else{
-                            mReview.setText(null);
-                        }
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                    } else {
-                        Log.d(TAG, "No such document");
+        docRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    if(document.getData().get("review") != null){
+                        mReview.setText((String) document.getData().get("review"));
+                    }else{
+                        mReview.setText(null);
                     }
+                    Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                    Log.d(TAG, "No such document");
                 }
+            } else {
+                Log.d(TAG, "get failed with ", task.getException());
             }
         });
     }

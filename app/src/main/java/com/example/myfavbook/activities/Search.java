@@ -31,7 +31,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -102,8 +101,8 @@ public class Search extends AppCompatActivity {
                 overridePendingTransition(0,0);
                 return true;
 
-            case R.id.more:
-                startActivity(new Intent(getApplicationContext(),More.class));
+            case R.id.faq:
+                startActivity(new Intent(getApplicationContext(), Faq.class));
                 overridePendingTransition(0,0);
                 return true;
 
@@ -133,7 +132,7 @@ public class Search extends AppCompatActivity {
                             Book book = setBookValues(document);
                             //below line is use to pass our modal class in our array list.
                             favBookLibrary.add(book);
-                            Log.d(TAG, "Loaded Succesfully");
+                            Log.d(TAG, "Loaded Successfully");
                         }
                     } else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
