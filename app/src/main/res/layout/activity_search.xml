@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/background_new"
     tools:context=".activities.Search">
 
@@ -49,12 +48,14 @@
 
     </LinearLayout>
 
+
     <!--recycler view for displaying our list of books-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVBooks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/idLLsearch" />
+
 
     <!--progressbar for displaying our loading indicator-->
     <ProgressBar

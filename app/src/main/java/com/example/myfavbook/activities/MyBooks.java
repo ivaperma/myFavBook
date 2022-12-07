@@ -31,9 +31,9 @@ public class MyBooks extends AppCompatActivity {
 
                     return true;
 
-                case R.id.more:
+                case R.id.faq:
 
-                    startActivity(new Intent(getApplicationContext(), More.class));
+                    startActivity(new Intent(getApplicationContext(), Faq.class));
                     overridePendingTransition(0, 0);
 
                     return true;

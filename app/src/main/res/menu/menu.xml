@@ -18,8 +18,8 @@
         android:title="FRIENDS"
         android:icon="@drawable/ic_friends" />
     <item
-        android:id="@+id/more"
-        android:title="MORE"
+        android:id="@+id/faq"
+        android:title="FAQ"
         android:icon="@drawable/ic_more" />
 
 </menu>

@@ -3,6 +3,7 @@ package com.example.myfavbook.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -26,38 +27,41 @@ public class MainHome extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
         mLogoutBtn = findViewById(R.id.btnLogout);
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId())
-            {
-                case R.id.home:
-
-                    return true;
-
-                case R.id.more:
-                    startActivity(new Intent(getApplicationContext(),More.class));
-                    overridePendingTransition(0,0);
-                    return true;
-                case R.id.search:
-                    startActivity(new Intent(getApplicationContext(),Search.class));
-                    overridePendingTransition(0,0);
-                    return true;
-                case R.id.my_books:
-                    startActivity(new Intent(getApplicationContext(),Books.class));
-                    overridePendingTransition(0,0);
-                    return true;
-
-                case R.id.friends:
-                    startActivity(new Intent(getApplicationContext(),Friends.class));
-                    overridePendingTransition(0,0);
-                    return true;
-            }
-            return false;
-        });
+        bottomNavigationView.setOnItemSelectedListener(item -> selectView(item));
 
         mLogoutBtn.setOnClickListener(view -> {
             Toast.makeText(MainHome.this, "Deslogueado", Toast.LENGTH_LONG).show();
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         });
+    }
+
+    //switch activities
+    private Boolean selectView(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.home:
+
+                return true;
+
+            case R.id.faq:
+                startActivity(new Intent(getApplicationContext(), Faq.class));
+                overridePendingTransition(0,0);
+                return true;
+            case R.id.search:
+                startActivity(new Intent(getApplicationContext(),Search.class));
+                overridePendingTransition(0,0);
+                return true;
+            case R.id.my_books:
+                startActivity(new Intent(getApplicationContext(),Books.class));
+                overridePendingTransition(0,0);
+                return true;
+
+            case R.id.friends:
+                startActivity(new Intent(getApplicationContext(),Friends.class));
+                overridePendingTransition(0,0);
+                return true;
+        }
+        return false;
     }
 }

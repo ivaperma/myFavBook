@@ -57,7 +57,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             Intent i = new Intent(mContext, BookDetails.class);
             i.putExtra("title", bookInfo.getTitle());
             i.putExtra("subtitle", bookInfo.getSubtitle());
-            i.putExtra("authors", bookInfo.getAuthors());
             i.putExtra("publisher", bookInfo.getPublisher());
             i.putExtra("publishedDate", bookInfo.getPublishedDate());
             i.putExtra("description", bookInfo.getDescription());
@@ -93,4 +92,3 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         }
     }
 }
-
