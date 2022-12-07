@@ -64,7 +64,7 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:background="@color/grey"
-            >
+            android:visibility="gone">
         </TextView>
 
         <ImageView
@@ -97,7 +97,7 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:background="@color/grey"
-        >
+        android:visibility="gone">
     </TextView>
 
     <ImageView
@@ -129,7 +129,7 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:background="@color/grey"
-        >
+        android:visibility="gone">
     </TextView>
 
     <ImageView
@@ -161,7 +161,7 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:background="@color/grey"
-        >
+        android:visibility="gone">
     </TextView>
 
     <ImageView
@@ -193,7 +193,7 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:background="@color/grey"
-        >
+        android:visibility="gone">
     </TextView>
 
     <ImageView
@@ -225,7 +225,7 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:background="@color/grey"
-        >
+        android:visibility="gone">
     </TextView>
 
 </RelativeLayout>
