@@ -232,9 +232,9 @@
                 android:layout_marginBottom="28dp"
                 android:background="@drawable/border"
                 android:ems="10"
-                android:hint="@string/rate"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:hint="Rate 1-10"
                 android:textColor="#000000"
                 android:textColorHint="#000000" />
 
