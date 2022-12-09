@@ -24,6 +24,7 @@ Software necesario para obtener una copia del proyecto el proyecto:
  - Android Studio.  
 
 ```
+Y después importamos el proyecto.
     
 ##  Herramientas  🛠
 Una lista de las herramientas utilizadas en el proyecto:
@@ -40,7 +41,7 @@ Una lista de las herramientas utilizadas en el proyecto:
 
 - **David Matías Mota** [@DavidMatias94](https://github.com/DavidMatias94)
 - **Iván Pérez Martínez** [@ivaperma](https://github.com/ivaperma)
-- **Sergio Blazquez Fernandez**  [@Sergio2600](https://github.com/Sergio2600)
+- **Sergio Blázquez Fernández**  [@Sergio2600](https://github.com/Sergio2600)
 
 
 ##  Sobre Nosotros 👨🏽‍💻
