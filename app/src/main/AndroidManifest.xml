@@ -58,7 +58,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.More"
+            android:name=".activities.Faq"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

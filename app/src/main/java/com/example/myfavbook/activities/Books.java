@@ -38,10 +38,15 @@ public class Books extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.btn_navigator);
         bottomNavigationView.setSelectedItemId(R.id.my_books);
+        loadAndShowUserBooks();
 
         //switch activities
         bottomNavigationView.setOnItemSelectedListener(item -> selectView(item));
 
+
+    }
+
+    private void loadAndShowUserBooks() {
         //show books of the user
         db.collection(dbAuth.getCurrentUser().getEmail())
                 .get()
@@ -68,8 +73,8 @@ public class Books extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
 
-            case R.id.more:
-                startActivity(new Intent(getApplicationContext(), More.class));
+            case R.id.faq:
+                startActivity(new Intent(getApplicationContext(), Faq.class));
                 overridePendingTransition(0, 0);
                 return true;
 
@@ -112,8 +117,6 @@ public class Books extends AppCompatActivity {
                 (String) document.getData().get("previewLink"),
                 (String) document.getData().get("infoLink"),
                 (String) document.getData().get("buyLink")
-
-
         );
     }
 }

@@ -3,6 +3,7 @@ package com.example.myfavbook.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,37 +23,36 @@ public class Friends extends AppCompatActivity {
 
         bottomNavigationView = findViewById((R.id.btn_navigator));
         bottomNavigationView.setSelectedItemId(R.id.friends);
+        bottomNavigationView.setOnItemSelectedListener(item -> selectView(item));
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId())
-            {
-                case R.id.friends:
+    }
+    //switch activities
+    private Boolean selectView(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.friends:
 
-                    return true;
-                case R.id.home:
-                    startActivity(new Intent(getApplicationContext(),MainHome.class));
-                    overridePendingTransition(0,0);
-                    return true;
+                return true;
+            case R.id.home:
+                startActivity(new Intent(getApplicationContext(),MainHome.class));
+                overridePendingTransition(0,0);
+                return true;
 
-                case R.id.more:
-                    startActivity(new Intent(getApplicationContext(),More.class));
-                    overridePendingTransition(0,0);
-                    return true;
+            case R.id.faq:
+                startActivity(new Intent(getApplicationContext(), Faq.class));
+                overridePendingTransition(0,0);
+                return true;
 
-                case R.id.my_books:
-                    startActivity(new Intent(getApplicationContext(),Books.class));
-                    overridePendingTransition(0,0);
-                    return true;
+            case R.id.my_books:
+                startActivity(new Intent(getApplicationContext(),Books.class));
+                overridePendingTransition(0,0);
+                return true;
 
-                case R.id.search:
-                    startActivity(new Intent(getApplicationContext(),Search.class));
-                    overridePendingTransition(0,0);
-                    return true;
-            }
-            return false;
-        });
-
-
-
+            case R.id.search:
+                startActivity(new Intent(getApplicationContext(),Search.class));
+                overridePendingTransition(0,0);
+                return true;
+        }
+        return false;
     }
 }
